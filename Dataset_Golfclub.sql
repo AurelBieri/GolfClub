@@ -1,4 +1,4 @@
--- Daten f¸r Mitglieder-Tabelle einf¸gen
+-- Daten f√ºr Mitglieder-Tabelle einf√ºgen
 INSERT INTO Mitglieder (Vorname, Nachname, Geburtsdatum, Telefonnummer, WeitesterSchuss)
 VALUES
 ('Max', 'Mustermann', '1990-01-01', '123456789', 250),
@@ -15,10 +15,10 @@ VALUES
 ('Nicole', 'Fischer', '1986-08-30', '777666555', 235),
 ('Daniel', 'Schwarz', '1997-01-05', '666555444', 245),
 ('Lisa', 'Schmidt', '1989-05-22', '555444333', 225),
-('Patrick', 'M¸ller', '1994-10-15', '444333222', 260);
+('Patrick', 'M√ºller', '1994-10-15', '444333222', 260);
 
--- Daten f¸r Standorte-Tabelle einf¸gen
-INSERT INTO Standorte (Bezeichnung, Fl‰che, Postleitzahl)
+-- Daten f√ºr Standorte-Tabelle einf√ºgen
+INSERT INTO Standorte (Bezeichnung, Fl√§che, Postleitzahl)
 VALUES
 ('Luzern', 150.5, '6005'),
 ('Oberkirch', 200.2, '6208'),
@@ -26,23 +26,23 @@ VALUES
 ('Bubikon', 160.8, '6420'),
 ('Limpach', 190.3, '4001');
 
--- Daten f¸r Material-Tabelle einf¸gen
+-- Daten f√ºr Material-Tabelle einf√ºgen
 INSERT INTO Material (Bezeichnung, Marke, Anzahl, fk_MitgliederID)
 VALUES
 ('Golfball', 'Nike'),
-('Schl‰ger', 'Callaway'),
+('Schl√§ger', 'Callaway'),
 ('Golfschuhe', 'Rebook'),
 ('Golftasche', 'Rebook'),
 ('Golfball','Rebook'),
 ('Golftasche', 'TaylorMade'),
-('Schl‰ger', 'Nike'),
+('Schl√§ger', 'Nike'),
 ('Golfball', 'Callaway'),
 ('Golfball', 'TaylorMade'),
 ('Golfschuhe', 'Adidas'),
 ('Golfball', 'Adidas'),
 ('Golfball', 'Puma'),
-('Schl‰ger', 'Adidas'),
-('Schl‰ger', 'Rebook'),
+('Schl√§ger', 'Adidas'),
+('Schl√§ger', 'Rebook'),
 ('Golftasche', 'Nike'),
 
 INSERT INTO MitgliederMaterial (Anzahl, fk_MitgliederID, fk_MaterialID) VALUES
@@ -66,3 +66,32 @@ INSERT INTO MitgliederMaterial (Anzahl, fk_MitgliederID, fk_MaterialID) VALUES
     (1, 8, 15),
     (4, 10, 3),
     (2, 15, 9);
+-- Daten f√ºr Turniere-Tabelle einf√ºgen
+INSERT INTO Turniere (Datum, Dauer, fk_StandortID)
+VALUES
+('2023-03-01', 3, 4),
+('2023-04-15', 2, 3),
+('2023-06-10', 4, 1),
+('2023-07-20', 3, 5),
+('2023-09-05', 2, 2),
+('2023-10-12', 4, 3),
+('2023-11-25', 3, 1),
+('2024-01-08', 2, 5),
+('2024-03-15', 4, 2),
+('2024-05-02', 3, 3);
+ 
+ --Daten f√ºr TurnierMitglied-Tabelle einf√ºgen
+ insert into TurnierMitglied(Platz,fk_MitgliederID,fk_TurnierID,HatPreisGewonnen) 
+ Values
+ (1, 10, 1, 1),
+ (5, 9, 1, 0),
+ (3,10, 2, 1),
+ (2, 8, 3, 1),
+ (8, 7, 4, 0),
+ (4, 3, 5, 0),
+ (1, 8, 6, 0),
+ (8, 7, 4, 0),
+ (2, 2, 7, 1),
+ (1, 12, 8, 1),
+ (10, 14, 9, 0),
+ (7, 4, 10, 0)
