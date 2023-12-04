@@ -6,7 +6,7 @@ create database Golfclub
 go
 use Golfclub
 go
-CREATE TABLE Mitglieder (
+CREATE TABLE Mitglied (
     MitgliederID INT identity,
     Vorname VARCHAR(50),
     Nachname VARCHAR(50),
@@ -16,7 +16,7 @@ CREATE TABLE Mitglieder (
     primary key(MitgliederID)
 );
 
-CREATE TABLE Standoerte (
+CREATE TABLE Standort (
     StandortID int identity,
     Bezeichnung VARCHAR(100),
     Fläche Float,
@@ -42,7 +42,7 @@ CREATE TABLE MitgliederMaterial (
     FOREIGN KEY (fk_MaterialID) REFERENCES Material(MaterialID)
 );
 
-CREATE TABLE Turniere (
+CREATE TABLE Turnier (
     TurnierID INT identity,
     Datum DATE,
     Dauer INT,
@@ -54,7 +54,7 @@ CREATE TABLE Turniere (
 go
 CREATE TABLE TurnierMitglied (
     TurnierMitgliedID INT identity,
-    Platz INT,
+    Rang INT,
     fk_MitgliederID INT,
     fk_TurnierID INT,
     HatPreisGewonnen bit,
