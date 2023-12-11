@@ -28,23 +28,23 @@ VALUES
 ('Limpach', 190.3, '4001');
 
 -- Daten für Material-Tabelle einfügen
-INSERT INTO Material (Bezeichnung, Marke, AnzahlInsgesamt)
+INSERT INTO Material (Bezeichnung, Marke)
 VALUES
-('Golfball', 'Nike', 15),
-('Schläger', 'Callaway', 11),
-('Golfschuhe', 'Rebook', 13),
-('Golftasche', 'Rebook', 11),
-('Golfball','Rebook', 15),
-('Golftasche', 'TaylorMade', 13),
-('Schläger', 'Nike', 13),
-('Golfball', 'Callaway', 6),
-('Golfball', 'TaylorMade', 11),
-('Golfschuhe', 'Adidas', 12),
-('Golfball', 'Adidas', 12),
-('Golfball', 'Puma', 15),
-('Schläger', 'Adidas',8 ),
-('Schläger', 'Rebook', 9),
-('Golftasche', 'Nike', 7);
+('Golfball', 'Nike'),
+('Schläger', 'Callaway'),
+('Golfschuhe', 'Rebook'),
+('Golftasche', 'Rebook'),
+('Golfball','Rebook'),
+('Golftasche', 'TaylorMade'),
+('Schläger', 'Nike'),
+('Golfball', 'Callaway'),
+('Golfball', 'TaylorMade'),
+('Golfschuhe', 'Adidas'),
+('Golfball', 'Adidas'),
+('Golfball', 'Puma'),
+('Schläger', 'Adidas'),
+('Schläger', 'Rebook'),
+('Golftasche', 'Nike');
 
 INSERT INTO MitgliederMaterial (Anzahl, fk_MitgliederID, fk_MaterialID) VALUES
     (3, 6, 1),
@@ -68,18 +68,18 @@ INSERT INTO MitgliederMaterial (Anzahl, fk_MitgliederID, fk_MaterialID) VALUES
     (4, 10, 3),
     (2, 15, 9);
 -- Daten für Turniere-Tabelle einfügen
-INSERT INTO Turnier (Datum, Dauer, AnzTeilnehmer, fk_StandortID)
+INSERT INTO Turnier (Datum, Dauer, fk_StandortID)
 VALUES
-('2023-03-01', 120, 3, 4),
-('2023-04-15', 200, 2, 3),
-('2023-06-10', 170, 4, 1),
-('2023-07-20', 310, 3, 5),
-('2023-09-05', 100, 2, 2),
-('2023-10-12', 445, 4, 3),
-('2023-11-25', 375, 3, 1),
-('2024-01-08', 290, 2, 5),
-('2024-03-15', 315, 4, 2),
-('2024-05-02', 400, 3, 3);
+('2023-03-01', 120, 4),
+('2023-04-15', 200, 3),
+('2023-06-10', 170, 1),
+('2023-07-20', 310, 5),
+('2023-09-05', 100, 2),
+('2023-10-12', 445, 3),
+('2023-11-25', 375, 1),
+('2024-01-08', 290, 5),
+('2024-03-15', 315, 2),
+('2024-05-02', 400, 3);
  
  --Daten für TurnierMitglied-Tabelle einfügen
  insert into TurnierMitglied(Rang, fk_MitgliederID ,fk_TurnierID, HatPreisGewonnen) 
