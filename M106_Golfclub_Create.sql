@@ -38,7 +38,7 @@ CREATE TABLE MitgliederMaterial (
     fk_MitgliederID INT,
     fk_MaterialID INT,
     primary key(MitgliederMaterialID),
-    FOREIGN KEY (fk_MitgliederID) REFERENCES Mitglieder(MitgliederID),
+    FOREIGN KEY (fk_MitgliederID) REFERENCES Mitglied(MitgliederID),
     FOREIGN KEY (fk_MaterialID) REFERENCES Material(MaterialID)
 );
 
@@ -49,7 +49,7 @@ CREATE TABLE Turnier (
     AnzTeilnehmer INT,
     fk_StandortID INT,
     primary key (TurnierID),
-    FOREIGN KEY (fk_StandortID) REFERENCES Standoerte(StandortID)
+    FOREIGN KEY (fk_StandortID) REFERENCES Standort(StandortID)
 );
 go
 CREATE TABLE TurnierMitglied (
@@ -59,6 +59,6 @@ CREATE TABLE TurnierMitglied (
     fk_TurnierID INT,
     HatPreisGewonnen bit,
     primary key(TurnierMitgliedID),
-    FOREIGN KEY (fk_MitgliederID) REFERENCES Mitglieder(MitgliederID),
-    FOREIGN KEY (fk_TurnierID) REFERENCES Turniere(TurnierID)
+    FOREIGN KEY (fk_MitgliederID) REFERENCES Mitglied(MitgliederID),
+    FOREIGN KEY (fk_TurnierID) REFERENCES Turnier(TurnierID)
 );
