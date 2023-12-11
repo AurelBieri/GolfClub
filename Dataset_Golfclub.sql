@@ -1,5 +1,5 @@
 -- Daten für Mitglieder-Tabelle einfügen
-INSERT INTO Mitglieder (Vorname, Nachname, Geburtsdatum, Telefonnummer, WeitesterSchuss)
+INSERT INTO Mitglied (Vorname, Nachname, Geburtsdatum, Telefonnummer, WeitesterSchuss)
 VALUES
 ('Max', 'Mustermann', '1990-01-01', '123456789', 250),
 ('Anna', 'Musterfrau', '1985-05-15', '987654321', 220),
@@ -18,7 +18,7 @@ VALUES
 ('Patrick', 'Müller', '1994-10-15', '444333222', 260);
 
 -- Daten für Standorte-Tabelle einfügen
-INSERT INTO Standorte (Bezeichnung, Fläche, Postleitzahl)
+INSERT INTO Standort (Bezeichnung, Fläche, Postleitzahl)
 VALUES
 ('Luzern', 150.5, '6005'),
 ('Oberkirch', 200.2, '6208'),
@@ -27,7 +27,7 @@ VALUES
 ('Limpach', 190.3, '4001');
 
 -- Daten für Material-Tabelle einfügen
-INSERT INTO Material (Bezeichnung, Marke, Anzahl, fk_MitgliederID)
+INSERT INTO Material (Bezeichnung, Marke)
 VALUES
 ('Golfball', 'Nike'),
 ('Schläger', 'Callaway'),
@@ -43,7 +43,7 @@ VALUES
 ('Golfball', 'Puma'),
 ('Schläger', 'Adidas'),
 ('Schläger', 'Rebook'),
-('Golftasche', 'Nike'),
+('Golftasche', 'Nike');
 
 INSERT INTO MitgliederMaterial (Anzahl, fk_MitgliederID, fk_MaterialID) VALUES
     (3, 6, 1),
@@ -66,8 +66,9 @@ INSERT INTO MitgliederMaterial (Anzahl, fk_MitgliederID, fk_MaterialID) VALUES
     (1, 8, 15),
     (4, 10, 3),
     (2, 15, 9);
+
 -- Daten für Turniere-Tabelle einfügen
-INSERT INTO Turniere (Datum, Dauer, fk_StandortID)
+INSERT INTO Turnier (Datum, Dauer, fk_StandortID)
 VALUES
 ('2023-03-01', 3, 4),
 ('2023-04-15', 2, 3),
@@ -81,7 +82,7 @@ VALUES
 ('2024-05-02', 3, 3);
  
  --Daten für TurnierMitglied-Tabelle einfügen
- insert into TurnierMitglied(Platz,fk_MitgliederID,fk_TurnierID,HatPreisGewonnen) 
+ insert into TurnierMitglied(Rang,fk_MitgliederID,fk_TurnierID,HatPreisGewonnen) 
  Values
  (1, 10, 1, 1),
  (5, 9, 1, 0),
