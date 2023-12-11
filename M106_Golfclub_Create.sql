@@ -28,7 +28,6 @@ CREATE TABLE Material (
     MaterialID INT identity,
     Bezeichnung VARCHAR(100),
     Marke VARCHAR(50),
-    AnzahlInsgesamt INT,
     primary key(MaterialID),
 );
 go
@@ -46,7 +45,6 @@ CREATE TABLE Turnier (
     TurnierID INT identity,
     Datum DATE,
     Dauer INT,
-    AnzTeilnehmer INT,
     fk_StandortID INT,
     primary key (TurnierID),
     FOREIGN KEY (fk_StandortID) REFERENCES Standort(StandortID)
