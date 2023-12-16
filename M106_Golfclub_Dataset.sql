@@ -68,18 +68,35 @@ INSERT INTO MitgliederMaterial (Anzahl, fk_MitgliederID, fk_MaterialID) VALUES
     (4, 10, 3),
     (2, 15, 9);
 -- Daten für Turniere-Tabelle einfügen
-INSERT INTO Turnier (Datum, Dauer, fk_StandortID)
-VALUES
-('2023-03-01', 120, 4),
-('2023-04-15', 200, 3),
-('2023-06-10', 170, 1),
-('2023-07-20', 310, 5),
-('2023-09-05', 100, 2),
-('2023-10-12', 445, 3),
-('2023-11-25', 375, 1),
-('2024-01-08', 290, 5),
-('2024-03-15', 315, 2),
-('2024-05-02', 400, 3);
+INSERT INTO TurnierMitglied (Rang, fk_MitgliederID, fk_TurnierID, HatPreisGewonnen) VALUES
+(6, 1, 1, 0),
+(4, 2, 2, 0),
+(7, 3, 3, 0),
+(5, 4, 4, 0),
+(2, 5, 5, 1),
+(3, 6, 6, 1),
+(4, 7, 7, 0),
+(1, 8, 8, 1),
+(6, 9, 9, 0),
+(2, 10, 10, 1),
+(5, 11, 1, 0),
+(3, 12, 2, 0),
+(4, 13, 3, 0),
+(7, 14, 4, 0),
+(2, 1, 6, 0),
+(3, 2, 7, 0),
+(5, 3, 8, 0),
+(4, 4, 9, 0),
+(6, 5, 10, 0),
+(1, 6, 1, 1),
+(7, 7, 2, 0),
+(2, 8, 3, 1),
+(3, 9, 4, 0),
+(5, 10, 5, 0),
+(4, 11, 6, 0),
+(6, 12, 7, 0),
+(1, 13, 8, 1),
+(7, 14, 9, 0);
  
  --Daten für TurnierMitglied-Tabelle einfügen
  insert into TurnierMitglied(Rang, fk_MitgliederID ,fk_TurnierID, HatPreisGewonnen) 
