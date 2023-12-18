@@ -12,13 +12,13 @@ AS BEGIN
     DECLARE @ParticipationCount INT;
     DECLARE @WeightedRank FLOAT;
 
-    --Prüfen, ob Mitgliedid gültig ist.
+    --PrÃ¼fen, ob Mitgliedid gÃ¼ltig ist.
     IF @Mitgliedid IS NULL OR @Mitgliedid NOT IN (SELECT MitgliederID FROM Mitglied)
     BEGIN
-      RETURN -1; -- Fehlercode: Mitglied ungültig
+      RETURN -1; -- Fehlercode: Mitglied ungÃ¼ltig
     END
 
-    -- Prüfen, ob Turnierid gültig ist. Wenn Turnier null ist, gibt es den allgemeinen Rang des Spielers aus.
+    -- PrÃ¼fen, ob Turnierid gÃ¼ltig ist. Wenn Turnier null ist, gibt es den allgemeinen Rang des Spielers aus.
     IF @Turnierid IS NULL
     BEGIN
     if @Mitgliedid not in (select fk_MitgliederID from TurnierMitglied)
@@ -45,13 +45,13 @@ AS BEGIN
     END
     ELSE IF @Turnierid NOT IN (SELECT TurnierID FROM Turnier)
     BEGIN
-      RETURN -2; -- Fehlercode: Turnier ungültig
+      RETURN -2; -- Fehlercode: Turnier ungÃ¼ltig
     END
 
-    -- Prüfen, ob Spieler am Turnier teilgenommen hat.
+    -- PrÃ¼fen, ob Spieler am Turnier teilgenommen hat.
     IF @Mitgliedid NOT IN (SELECT fk_MitgliederID FROM TurnierMitglied WHERE @Turnierid = fk_TurnierID)
     BEGIN
-      RETURN -3; -- Fehlercode: Spieler nicht in diesem Turnier
+      RETURN -3 ; -- Fehlercode: Spieler nicht in diesem Turnier
     END
 
     SET @SpielerRank = (SELECT Rang FROM TurnierMitglied WHERE fk_MitgliederID = @Mitgliedid AND fk_TurnierID = @Turnierid);
@@ -60,9 +60,14 @@ AS BEGIN
 END;
 GO
 
---Tesfälle
---print dbo.fn_GetRang(10,8) -- korekte eingabe beider Werte
+--TesfÃ¤lle
+--print dbo.fn_GetRang(12,2) -- korekte eingabe beider Werte
+--print dbo.fn_GetRang(10,10) --korekte eingabe beider Werte
+
 --print dbo.fn_GetRang(6, 5) --Mitglied6 hat nicht bei Turnier5 Mitgemacht. Fehlercode -3
+    
 --print dbo.fn_GetRang(23, 5) --Mitglied existiert nicht. Fehlercode -1
+--print dbo.fn_GetRang(null,4) --Mitglied existiert nicht oder wurde nicht Ã¼bergeben. Fehlercode -1
+
 --print dbo.fn_GetRang(13, 43) --Turnier existiert nicht. Fehlercode -2
 --print dbo.fn_GetRang(13, null) --Korrekte eingabe um den Allgemeinen Ranglistenplatz von 13 auszurechnen.
